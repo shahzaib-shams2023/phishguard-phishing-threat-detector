@@ -1,0 +1,12 @@
+services:
+  phishguard:
+    build: .
+    container_name: phishguard-service
+    ports:
+      - "8005:8005"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8005
+      - LLM_API_KEY=${LLM_API_KEY:-}
+    restart: unless-stopped
+
